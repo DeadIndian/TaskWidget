@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=A task widget for KDE Plasma
+
+Type=Service
+Icon=evolution-tasks
+X-KDE-ServiceTypes=Plasma/Applet
+
+X-Plasma-MainScript=ui/main.qml
+X-KDE-PluginInfo-Name=org.kde.plasma.taskwidget
+

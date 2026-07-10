@@ -1,0 +1,153 @@
+# Japanese translation of taskwidget
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the taskwidget package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: taskwidget\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-10 16:36+0300\n"
+"PO-Revision-Date: 2026-07-10 16:36+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Japanese <LL@li.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../contents/ui/configGeneral.qml ../contents/ui/main.qml
+msgid "Tasks"
+msgstr "タスク"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task Widget Configuration"
+msgstr "タスクウィジェットの設定"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Hide background"
+msgstr "背景を非表示"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Enable blur"
+msgstr "ぼかしを有効化"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Title"
+msgstr "タイトル"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Center title alignment"
+msgstr "タイトルを中央揃え"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Main color"
+msgstr "メインカラー"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose color"
+msgstr "色を選択"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Font Color"
+msgstr "フォントの色を選択"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Background opacity"
+msgstr "背景の不透明度"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task block opacity"
+msgstr "タスクブロックの不透明度"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Blur radius"
+msgstr "ぼかしの半径"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Widget corner radius"
+msgstr "ウィジェット隅の半径"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task block radius"
+msgstr "タスクブロックの半径"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task item height"
+msgstr "タスク項目の高さ"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Apply"
+msgstr "適用"
+
+#: ../contents/ui/main.qml
+msgid "New task"
+msgstr "新しいタスク"
+
+#: ../contents/ui/main.qml
+msgid "+"
+msgstr "+"
+
+#: ../contents/ui/main.qml
+msgid "tasks, "
+msgstr "タスク、"
+
+#: ../contents/ui/main.qml
+msgid "completed"
+msgstr "完了"
+
+#: ../contents/ui/main.qml
+msgid "Clear completed"
+msgstr "完了したタスクをクリア"
+
+#: ../contents/ui/main.qml
+msgid "No tasks yet. Click + to add one."
+msgstr "まだタスクがありません。+ をクリックして追加してください。"
+
+#: ../contents/ui/main.qml
+msgid "✎"
+msgstr "✎"
+
+#: ../contents/ui/main.qml
+msgid "×"
+msgstr "×"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task color"
+msgstr "タスクの色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Task Color"
+msgstr "タスクの色を選択"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Completed task color"
+msgstr "完了タスクの色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Completed Task Color"
+msgstr "完了タスクの色を選択"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task text color"
+msgstr "タスクテキストの色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Task Text Color"
+msgstr "タスクテキストの色を選択"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Completed task text color"
+msgstr "完了タスクテキストの色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Completed Task Text Color"
+msgstr "完了タスクテキストの色を選択"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Widget text color"
+msgstr "ウィジェットテキストの色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Widget Text Color"
+msgstr "ウィジェットテキストの色を選択"

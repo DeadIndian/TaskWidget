@@ -1,0 +1,153 @@
+# Chinese translation of taskwidget
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the taskwidget package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: taskwidget\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-10 16:36+0300\n"
+"PO-Revision-Date: 2026-07-10 16:36+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Chinese <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../contents/ui/configGeneral.qml ../contents/ui/main.qml
+msgid "Tasks"
+msgstr "任务"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task Widget Configuration"
+msgstr "任务小部件配置"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Hide background"
+msgstr "隐藏背景"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Enable blur"
+msgstr "启用模糊"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Title"
+msgstr "标题"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Center title alignment"
+msgstr "居中标题对齐"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Main color"
+msgstr "主色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose color"
+msgstr "选择颜色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Font Color"
+msgstr "选择字体颜色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Background opacity"
+msgstr "背景透明度"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task block opacity"
+msgstr "任务块透明度"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Blur radius"
+msgstr "模糊半径"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Widget corner radius"
+msgstr "小部件圆角半径"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task block radius"
+msgstr "任务块圆角半径"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task item height"
+msgstr "任务项高度"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Apply"
+msgstr "应用"
+
+#: ../contents/ui/main.qml
+msgid "New task"
+msgstr "新任务"
+
+#: ../contents/ui/main.qml
+msgid "+"
+msgstr "+"
+
+#: ../contents/ui/main.qml
+msgid "tasks, "
+msgstr "任务，"
+
+#: ../contents/ui/main.qml
+msgid "completed"
+msgstr "已完成"
+
+#: ../contents/ui/main.qml
+msgid "Clear completed"
+msgstr "清除已完成"
+
+#: ../contents/ui/main.qml
+msgid "No tasks yet. Click + to add one."
+msgstr "暂无任务。点击 + 添加一个。"
+
+#: ../contents/ui/main.qml
+msgid "✎"
+msgstr "✎"
+
+#: ../contents/ui/main.qml
+msgid "×"
+msgstr "×"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task color"
+msgstr "任务颜色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Task Color"
+msgstr "选择任务颜色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Completed task color"
+msgstr "已完成任务颜色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Completed Task Color"
+msgstr "选择已完成任务颜色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task text color"
+msgstr "任务文本颜色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Task Text Color"
+msgstr "选择任务文本颜色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Completed task text color"
+msgstr "已完成任务文本颜色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Completed Task Text Color"
+msgstr "选择已完成任务文本颜色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Widget text color"
+msgstr "小部件文本颜色"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Widget Text Color"
+msgstr "选择小部件文本颜色"

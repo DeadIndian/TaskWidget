@@ -1,0 +1,153 @@
+# Bulgarian translation of taskwidget
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the taskwidget package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: taskwidget\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-10 16:36+0300\n"
+"PO-Revision-Date: 2026-07-10 16:36+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Bulgarian <LL@li.org>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../contents/ui/configGeneral.qml ../contents/ui/main.qml
+msgid "Tasks"
+msgstr "Задачи"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task Widget Configuration"
+msgstr "Конфигурация на виджета за задачи"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Hide background"
+msgstr "Скрий фона"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Enable blur"
+msgstr "Включи размиване"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Title"
+msgstr "Заглавие"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Center title alignment"
+msgstr "Центриране на заглавието"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Main color"
+msgstr "Основен цвят"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose color"
+msgstr "Изберете цвят"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Font Color"
+msgstr "Изберете цвят на шрифта"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Background opacity"
+msgstr "Прозрачност на фона"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task block opacity"
+msgstr "Прозрачност на блока на задачата"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Blur radius"
+msgstr "Радиус на размиване"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Widget corner radius"
+msgstr "Радиус на закръгляне на виджета"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task block radius"
+msgstr "Радиус на закръгляне на блока на задачата"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task item height"
+msgstr "Височина на елемента на задачата"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Apply"
+msgstr "Приложи"
+
+#: ../contents/ui/main.qml
+msgid "New task"
+msgstr "Нова задача"
+
+#: ../contents/ui/main.qml
+msgid "+"
+msgstr "+"
+
+#: ../contents/ui/main.qml
+msgid "tasks, "
+msgstr "задачи, "
+
+#: ../contents/ui/main.qml
+msgid "completed"
+msgstr "изпълнени"
+
+#: ../contents/ui/main.qml
+msgid "Clear completed"
+msgstr "Изчисти изпълнените"
+
+#: ../contents/ui/main.qml
+msgid "No tasks yet. Click + to add one."
+msgstr "Все още няма задачи. Натиснете +, за да добавите една."
+
+#: ../contents/ui/main.qml
+msgid "✎"
+msgstr "✎"
+
+#: ../contents/ui/main.qml
+msgid "×"
+msgstr "×"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task color"
+msgstr "Цвят на задачата"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Task Color"
+msgstr "Изберете цвят на задачата"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Completed task color"
+msgstr "Цвят на изпълнената задача"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Completed Task Color"
+msgstr "Изберете цвят на изпълнената задача"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task text color"
+msgstr "Цвят на текста на задачата"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Task Text Color"
+msgstr "Изберете цвят на текста на задачата"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Completed task text color"
+msgstr "Цвят на текста на изпълнената задача"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Completed Task Text Color"
+msgstr "Изберете цвят на текста на изпълнената задача"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Widget text color"
+msgstr "Цвят на текста на виджета"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Widget Text Color"
+msgstr "Изберете цвят на текста на виджета"

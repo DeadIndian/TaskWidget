@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+    <kcfgfile name=""/>
+
+    <group name="General">
+        <entry name="hideBackground" type="bool">
+            <label>Hide background</label>
+            <default>false</default>
+        </entry>
+        <entry name="titleAlignmentCenter" type="bool">
+            <label>Center title</label>
+            <default>false</default>
+        </entry>
+        <entry name="tasks" type="string">
+            <label>Saved tasks</label>
+            <default>[]</default>
+        </entry>
+        <entry name="widgetTitle" type="string">
+            <label>Widget title</label>
+            <default>Tasks</default>
+        </entry>
+        <entry name="widgetColor" type="string">
+            <label>Widget color</label>
+            <default>#2d3748</default>э
+        </entry>
+        <entry name="taskColor" type="string">
+            <label>Task color</label>
+            <default>#2d3748</default>
+        </entry>
+        <entry name="completedTaskColor" type="string">
+            <label>Completed task color</label>
+            <default>#2f855a</default>
+        </entry>
+        <entry name="taskTextColor" type="string">
+            <label>Task text color</label>
+            <default>#ffffff</default>
+        </entry>
+        <entry name="completedTaskTextColor" type="string">
+            <label>Completed task text color</label>
+            <default>#cbd5e0</default>
+        </entry>
+        <entry name="widgetTextColor" type="string">
+            <label>Widget text color</label>
+            <default>#ffffff</default>
+        </entry>
+        <entry name="backgroundOpacity" type="double">
+            <label>Background opacity</label>
+            <default>0.95</default>
+        </entry>
+        <entry name="taskOpacity" type="double">
+            <label>Task block opacity</label>
+            <default>0.95</default>
+        </entry>
+        <entry name="enableBlur" type="bool">
+            <label>Enable blur</label>
+            <default>false</default>
+        </entry>
+        <entry name="blurRadius" type="int">
+            <label>Blur radius</label>
+            <default>8</default>
+        </entry>
+        <entry name="cornerRadius" type="int">
+            <label>Widget corner radius</label>
+            <default>16</default>
+        </entry>
+        <entry name="taskRadius" type="int">
+            <label>Task block radius</label>
+            <default>12</default>
+        </entry>
+        <entry name="taskHeight" type="int">
+            <label>Task item height</label>
+            <default>32</default>
+        </entry>
+    </group>
+</kcfg>

@@ -1,0 +1,154 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the taskwidget package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: taskwidget\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-10 16:36+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../contents/ui/configGeneral.qml ../contents/ui/main.qml
+msgid "Tasks"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task Widget Configuration"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Hide background"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Enable blur"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Title"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Center title alignment"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Main color"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose color"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Font Color"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Background opacity"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task block opacity"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Blur radius"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Widget corner radius"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task block radius"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task item height"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Apply"
+msgstr ""
+
+#: ../contents/ui/main.qml
+msgid "New task"
+msgstr ""
+
+#: ../contents/ui/main.qml
+msgid "+"
+msgstr ""
+
+#: ../contents/ui/main.qml
+msgid "tasks, "
+msgstr ""
+
+#: ../contents/ui/main.qml
+msgid "completed"
+msgstr ""
+
+#: ../contents/ui/main.qml
+msgid "Clear completed"
+msgstr ""
+
+#: ../contents/ui/main.qml
+msgid "No tasks yet. Click + to add one."
+msgstr ""
+
+#: ../contents/ui/main.qml
+msgid "✎"
+msgstr ""
+
+#: ../contents/ui/main.qml
+msgid "×"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task color"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Task Color"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Completed task color"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Completed Task Color"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task text color"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Task Text Color"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Completed task text color"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Completed Task Text Color"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Widget text color"
+msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Widget Text Color"
+msgstr ""
