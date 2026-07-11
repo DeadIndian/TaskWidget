@@ -1,6 +1,6 @@
 # Tasks Widget
 
-A KDE Plasma task management widget that allows you to track and complete your daily tasks directly from your desktop panel.
+A KDE Plasma task management widget that allows you to track and complete your daily tasks directly from your desktop
 
 ![Widget Screenshot](images/screenshot_01.png)
 
