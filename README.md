@@ -1,3 +1,4 @@
+<video controls autoplay loop src="https://github.com/user-attachments/assets/0b29ac46-d75f-418e-a9a4-e08aabcf0d57"></video>
 # Tasks Widget
 
 A KDE Plasma task management widget that allows you to track and complete your daily tasks directly from your desktop
