@@ -1,0 +1,155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the taskwidget package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: taskwidget\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-10 16:36+0300\n"
+"PO-Revision-Date: 2026-07-11 16:20+0200\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#: ../contents/ui/configGeneral.qml ../contents/ui/main.qml
+msgid "Tasks"
+msgstr "Taken"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task Widget Configuration"
+msgstr "Taakwidgetinstellingen"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Hide background"
+msgstr "Achtergrond verbergen"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Enable blur"
+msgstr "Achtergrond vervagen"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Title"
+msgstr "Titel"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Center title alignment"
+msgstr "Titel centreren"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Main color"
+msgstr "Hoofdkleur"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose color"
+msgstr "Kies een kleur"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Font Color"
+msgstr "Kies een lettertypekleur"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Background opacity"
+msgstr "Doorzichtigheid van achtergrond"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task block opacity"
+msgstr "Doorzichtigheid van taken"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Blur radius"
+msgstr "Vervagingsstraal"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Widget corner radius"
+msgstr "Hoekstraal van widget"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task block radius"
+msgstr "Hoekstraal van taken"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task item height"
+msgstr "Taakhoogte"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Apply"
+msgstr "Toepassen"
+
+#: ../contents/ui/main.qml
+msgid "New task"
+msgstr "Nieuwe taak"
+
+#: ../contents/ui/main.qml
+msgid "+"
+msgstr "+"
+
+#: ../contents/ui/main.qml
+msgid "tasks, "
+msgstr "taken, "
+
+#: ../contents/ui/main.qml
+msgid "completed"
+msgstr "afgerond"
+
+#: ../contents/ui/main.qml
+msgid "Clear completed"
+msgstr "Afgeronde taken wissen"
+
+#: ../contents/ui/main.qml
+msgid "No tasks yet. Click + to add one."
+msgstr "Klik op de +-knop om een taak toe te voegen."
+
+#: ../contents/ui/main.qml
+msgid "✎"
+msgstr "✎"
+
+#: ../contents/ui/main.qml
+msgid "×"
+msgstr "×"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task color"
+msgstr "Taakkleur"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Task Color"
+msgstr "Kies een taakkleur"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Completed task color"
+msgstr "Kleur van afgeronde taken"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Completed Task Color"
+msgstr "Kies de kleur van afgeronde taken"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Task text color"
+msgstr "Tekstkleur"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Task Text Color"
+msgstr "Kies de tekstkleur van taken"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Completed task text color"
+msgstr "Tekstkleur van afgeronde taken"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Completed Task Text Color"
+msgstr "Kies de tekstkleur van afgeronde taken"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Widget text color"
+msgstr "Widget-tekstkleur"
+
+#: ../contents/ui/configGeneral.qml
+msgid "Choose Widget Text Color"
+msgstr "Kies de widget-tekstkleur"
