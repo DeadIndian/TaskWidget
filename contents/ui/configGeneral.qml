@@ -30,277 +30,255 @@ KCMUtils.SimpleKCM {
     property alias cfg_taskHeight: taskHeightSpin.value
     
     
-    ScrollView {
-        id: control
-        focus: true
-        width: page.availableWidth
-        height: page.availableHeight
-        anchors.margins: 8
-        anchors {
-            left: parent.left
-            right: parent.right
-            top: parent.top
-            bottom: parent.bottom
+
+    Kirigami.FormLayout {
+        width: control.availableWidth
+        anchors.fill: parent
+
+        CheckBox {
+            id: hideBackgroundCheckBox
+            Kirigami.FormData.label: i18n("Hide background")
         }
-        ScrollBar.vertical: ScrollBar {
-            parent: control
-            x: control.mirrored ? 0 : control.width - width
-            y: control.topPadding
-            height: control.availableHeight
+
+        CheckBox {
+            id: enableBlurCheckBox
+            Kirigami.FormData.label: i18n("Enable blur")
+            visible: !hideBackgroundCheckBox.checked
         }
-        Kirigami.FormLayout {
-            width: control.availableWidth
-            anchors {
-                left: control.left
-                right: control.right
-                top: control.top
-            }
 
-            CheckBox {
-                id: hideBackgroundCheckBox
-                Kirigami.FormData.label: i18n("Hide background")
-            }
+        TextField {
+            Kirigami.FormData.label: i18n("Title")
+            id: widgetTitleSpin
+            Layout.fillWidth: true
+        }
 
-            CheckBox {
-                id: enableBlurCheckBox
-                Kirigami.FormData.label: i18n("Enable blur")
-                visible: !hideBackgroundCheckBox.checked
-            }
+        CheckBox {
+            id: titleAlignmentCheckBox
+            Kirigami.FormData.label: i18n("Center title alignment")
+        }
 
-            TextField {
-                Kirigami.FormData.label: i18n("Title")
-                id: widgetTitleSpin
+        RowLayout {
+            Layout.fillWidth: true
+            Kirigami.FormData.label: i18n("Main color")
+            spacing: 10
+
+            Rectangle {
+                id: colorPreview
+                width: 34
+                height: 28
+                radius: 6
+                color: cfg_widgetColor
+                border.color: "#718096"
                 Layout.fillWidth: true
+                border.width: 1
             }
 
-            CheckBox {
-                id: titleAlignmentCheckBox
-                Kirigami.FormData.label: i18n("Center title alignment")
-            }
-
-            RowLayout {
+            Button {
+                text: i18n("Choose color")
                 Layout.fillWidth: true
-                Kirigami.FormData.label: i18n("Main color")
-                spacing: 10
-
-                Rectangle {
-                    id: colorPreview
-                    width: 34
-                    height: 28
-                    radius: 6
-                    color: cfg_widgetColor
-                    border.color: "#718096"
-                    Layout.fillWidth: true
-                    border.width: 1
-                }
-
-                Button {
-                    text: i18n("Choose color")
-                    Layout.fillWidth: true
-                    onClicked: widgetColorDialog.open()
-                }
+                onClicked: widgetColorDialog.open()
             }
-            ColorDialog {
-                id: widgetColorDialog
-                selectedColor: cfg_widgetColor
-            }
+        }
+        ColorDialog {
+            id: widgetColorDialog
+            selectedColor: cfg_widgetColor
+        }
 
-            RowLayout {
+        RowLayout {
+            Layout.fillWidth: true
+            Kirigami.FormData.label: i18n("Task color")
+            spacing: 10
+
+            Rectangle {
+                id: taskColorPreview
+                width: 34
+                height: 28
+                radius: 6
+                color: cfg_taskColor
+                border.color: "#718096"
                 Layout.fillWidth: true
-                Kirigami.FormData.label: i18n("Task color")
-                spacing: 10
-
-                Rectangle {
-                    id: taskColorPreview
-                    width: 34
-                    height: 28
-                    radius: 6
-                    color: cfg_taskColor
-                    border.color: "#718096"
-                    Layout.fillWidth: true
-                    border.width: 1
-                }
-
-                Button {
-                    text: i18n("Choose color")
-                    Layout.fillWidth: true
-                    onClicked: taskColorDialog.open()
-                }
-            }
-            ColorDialog {
-                id: taskColorDialog
-                title: i18n("Choose Task Color")
-                selectedColor: cfg_taskColor
+                border.width: 1
             }
 
-            RowLayout {
+            Button {
+                text: i18n("Choose color")
                 Layout.fillWidth: true
-                Kirigami.FormData.label: i18n("Completed task color")
-                spacing: 10
-
-                Rectangle {
-                    id: completedTaskColorPreview
-                    width: 34
-                    height: 28
-                    radius: 6
-                    color: cfg_completedTaskColor
-                    border.color: "#718096"
-                    Layout.fillWidth: true
-                    border.width: 1
-                }
-
-                Button {
-                    text: i18n("Choose color")
-                    Layout.fillWidth: true
-                    onClicked: completedTaskColorDialog.open()
-                }
+                onClicked: taskColorDialog.open()
             }
-            ColorDialog {
-                id: completedTaskColorDialog
-                title: i18n("Choose Completed Task Color")
-                selectedColor: cfg_completedTaskColor
-            }
+        }
+        ColorDialog {
+            id: taskColorDialog
+            title: i18n("Choose Task Color")
+            selectedColor: cfg_taskColor
+        }
 
-            RowLayout {
+        RowLayout {
+            Layout.fillWidth: true
+            Kirigami.FormData.label: i18n("Completed task color")
+            spacing: 10
+
+            Rectangle {
+                id: completedTaskColorPreview
+                width: 34
+                height: 28
+                radius: 6
+                color: cfg_completedTaskColor
+                border.color: "#718096"
                 Layout.fillWidth: true
-                Kirigami.FormData.label: i18n("Task text color")
-                spacing: 10
-
-                Rectangle {
-                    id: taskTextColorPreview
-                    width: 34
-                    height: 28
-                    radius: 6
-                    color: cfg_taskTextColor
-                    border.color: "#718096"
-                    Layout.fillWidth: true
-                    border.width: 1
-                }
-
-                Button {
-                    text: i18n("Choose color")
-                    Layout.fillWidth: true
-                    onClicked: taskTextColorDialog.open()
-                }
-            }
-            ColorDialog {
-                id: taskTextColorDialog
-                title: i18n("Choose Task Text Color")
-                selectedColor: cfg_taskTextColor
+                border.width: 1
             }
 
-            RowLayout {
+            Button {
+                text: i18n("Choose color")
                 Layout.fillWidth: true
-                Kirigami.FormData.label: i18n("Completed task text color")
-                spacing: 10
-
-                Rectangle {
-                    id: completedTaskTextColorPreview
-                    width: 34
-                    height: 28
-                    radius: 6
-                    color: cfg_completedTaskTextColor
-                    border.color: "#718096"
-                    Layout.fillWidth: true
-                    border.width: 1
-                }
-
-                Button {
-                    text: i18n("Choose color")
-                    Layout.fillWidth: true
-                    onClicked: completedTaskTextColorDialog.open()
-                }
+                onClicked: completedTaskColorDialog.open()
             }
-            ColorDialog {
-                id: completedTaskTextColorDialog
-                title: i18n("Choose Completed Task Text Color")
-                selectedColor: cfg_completedTaskTextColor
-            }
+        }
+        ColorDialog {
+            id: completedTaskColorDialog
+            title: i18n("Choose Completed Task Color")
+            selectedColor: cfg_completedTaskColor
+        }
 
-            RowLayout {
+        RowLayout {
+            Layout.fillWidth: true
+            Kirigami.FormData.label: i18n("Task text color")
+            spacing: 10
+
+            Rectangle {
+                id: taskTextColorPreview
+                width: 34
+                height: 28
+                radius: 6
+                color: cfg_taskTextColor
+                border.color: "#718096"
                 Layout.fillWidth: true
-                Kirigami.FormData.label: i18n("Widget text color")
-                spacing: 10
-
-                Rectangle {
-                    id: widgetTextColorPreview
-                    width: 34
-                    height: 28
-                    radius: 6
-                    color: cfg_widgetTextColor
-                    border.color: "#718096"
-                    Layout.fillWidth: true
-                    border.width: 1
-                }
-
-                Button {
-                    text: i18n("Choose color")
-                    Layout.fillWidth: true
-                    onClicked: widgetTextColorDialog.open()
-                }
-            }
-            ColorDialog {
-                id: widgetTextColorDialog
-                title: i18n("Choose Widget Text Color")
-                selectedColor: cfg_widgetTextColor
+                border.width: 1
             }
 
-            SpinBox {
-                id: backgroundOpacitySpin
-                Kirigami.FormData.label: i18n("Background opacity")
-                visible: !hideBackgroundCheckBox.checked
+            Button {
+                text: i18n("Choose color")
                 Layout.fillWidth: true
-                from: 0
-                to: 100
-                stepSize: 1
+                onClicked: taskTextColorDialog.open()
+            }
+        }
+        ColorDialog {
+            id: taskTextColorDialog
+            title: i18n("Choose Task Text Color")
+            selectedColor: cfg_taskTextColor
+        }
+
+        RowLayout {
+            Layout.fillWidth: true
+            Kirigami.FormData.label: i18n("Completed task text color")
+            spacing: 10
+
+            Rectangle {
+                id: completedTaskTextColorPreview
+                width: 34
+                height: 28
+                radius: 6
+                color: cfg_completedTaskTextColor
+                border.color: "#718096"
+                Layout.fillWidth: true
+                border.width: 1
             }
 
-            SpinBox {
-                id: taskOpacitySpin
-                Kirigami.FormData.label: i18n("Task block opacity")
+            Button {
+                text: i18n("Choose color")
                 Layout.fillWidth: true
-                from: 0
-                to: 100
-                stepSize: 1
+                onClicked: completedTaskTextColorDialog.open()
+            }
+        }
+        ColorDialog {
+            id: completedTaskTextColorDialog
+            title: i18n("Choose Completed Task Text Color")
+            selectedColor: cfg_completedTaskTextColor
+        }
+
+        RowLayout {
+            Layout.fillWidth: true
+            Kirigami.FormData.label: i18n("Widget text color")
+            spacing: 10
+
+            Rectangle {
+                id: widgetTextColorPreview
+                width: 34
+                height: 28
+                radius: 6
+                color: cfg_widgetTextColor
+                border.color: "#718096"
+                Layout.fillWidth: true
+                border.width: 1
             }
 
-            SpinBox {
-                id: blurRadiusSpin
-                Kirigami.FormData.label: i18n("Blur radius")
-                visible: !hideBackgroundCheckBox.checked
+            Button {
+                text: i18n("Choose color")
                 Layout.fillWidth: true
-                from: 0
-                to: 100
-                stepSize: 1
+                onClicked: widgetTextColorDialog.open()
             }
+        }
+        ColorDialog {
+            id: widgetTextColorDialog
+            title: i18n("Choose Widget Text Color")
+            selectedColor: cfg_widgetTextColor
+        }
 
-            SpinBox {
-                visible: !hideBackgroundCheckBox.checked
-                id: cornerRadiusSpin
-                Kirigami.FormData.label: i18n("Widget corner radius")
-                Layout.fillWidth: true
-                from: 0
-                to: 100
-                stepSize: 1
-            }
+        SpinBox {
+            id: backgroundOpacitySpin
+            Kirigami.FormData.label: i18n("Background opacity")
+            visible: !hideBackgroundCheckBox.checked
+            Layout.fillWidth: true
+            from: 0
+            to: 100
+            stepSize: 1
+        }
 
-            SpinBox {
-                id: taskRadiusSpin
-                Kirigami.FormData.label: i18n("Task block radius")
-                Layout.fillWidth: true
-                from: 0
-                to: 100
-                stepSize: 1
-            }
+        SpinBox {
+            id: taskOpacitySpin
+            Kirigami.FormData.label: i18n("Task block opacity")
+            Layout.fillWidth: true
+            from: 0
+            to: 100
+            stepSize: 1
+        }
 
-            SpinBox {
-                id: taskHeightSpin
-                Kirigami.FormData.label: i18n("Task item height")
-                Layout.fillWidth: true
-                from: 20
-                to: 200
-                stepSize: 1
-            }
+        SpinBox {
+            id: blurRadiusSpin
+            Kirigami.FormData.label: i18n("Blur radius")
+            visible: !hideBackgroundCheckBox.checked
+            Layout.fillWidth: true
+            from: 0
+            to: 100
+            stepSize: 1
+        }
+
+        SpinBox {
+            visible: !hideBackgroundCheckBox.checked
+            id: cornerRadiusSpin
+            Kirigami.FormData.label: i18n("Widget corner radius")
+            Layout.fillWidth: true
+            from: 0
+            to: 100
+            stepSize: 1
+        }
+
+        SpinBox {
+            id: taskRadiusSpin
+            Kirigami.FormData.label: i18n("Task block radius")
+            Layout.fillWidth: true
+            from: 0
+            to: 100
+            stepSize: 1
+        }
+
+        SpinBox {
+            id: taskHeightSpin
+            Kirigami.FormData.label: i18n("Task item height")
+            Layout.fillWidth: true
+            from: 20
+            to: 200
+            stepSize: 1
         }
     }
 }
