@@ -11,45 +11,26 @@ import "code/tasks.js" as TaskUtils
 PlasmoidItem {
     id: root
 
-    property bool hideBackground: false
-    property bool widgetHovered: false
-    property bool titleAlignmentCenter: false
-    property string widgetTitle: i18n("Tasks")
-    property string widgetColor: "#5e3a6b"
-    property string taskColor: "#5e3a6b"
-    property string completedTaskColor: "#2f855a"
-    property string taskTextColor: "#ffffff"
-    property string completedTaskTextColor: "#cbd5e0"
-    property string widgetTextColor: "#ffffff"
-    property real backgroundOpacity: 0.95
-    property real taskOpacity: 0.95
-    property bool enableBlur: false
-    property real blurRadius: 8
-    property int cornerRadius: 16
-    property int taskRadius: 12
-    property int taskHeight: 56
-    property int completedTasks: TaskUtils.completedCount(taskModel)
-    property bool editingTask: false
+    property bool hideBackground: plasmoid.configuration.hideBackground || false
+    property bool titleAlignmentCenter:titleAlignmentCenter = plasmoid.configuration.titleAlignmentCenter || false
+    property string widgetTitle: plasmoid.configuration.widgetTitle || i18n("Tasks")
+    property string widgetColor: plasmoid.configuration.widgetColor || "#2d3748"
+    property string taskColor: plasmoid.configuration.taskColor || "#5e3a6b"
+    property string completedTaskColor: plasmoid.configuration.completedTaskColor || "#2f855a"
+    property string taskTextColor: plasmoid.configuration.taskTextColor || "#ffffff"
+    property string completedTaskTextColor: plasmoid.configuration.completedTaskTextColor || "#cbd5e0"
+    property string widgetTextColor: plasmoid.configuration.widgetTextColor || "#ffffff"
+    property real backgroundOpacity: Number(plasmoid.configuration.backgroundOpacity/100 || 0.95)
+    property real taskOpacity: Number(plasmoid.configuration.taskOpacity/100 || 0.95)
+    property bool enableBlur: plasmoid.configuration.enableBlur || false
+    property real blurRadius: Number(plasmoid.configuration.blurRadius || 8)
+    property int cornerRadius: Number(plasmoid.configuration.cornerRadius || 16)
+    property int taskRadius: Number(plasmoid.configuration.taskRadius || 12)
+    property int taskHeight: Number(plasmoid.configuration.taskHeight || 56)
 
-    Connections {
-        target: plasmoid.configuration
-        onHideBackgroundChanged: hideBackground = plasmoid.configuration.hideBackground || false
-        onWidgetTitleChanged: widgetTitle = plasmoid.configuration.widgetTitle || i18n("Tasks")
-        onWidgetColorChanged: widgetColor = plasmoid.configuration.widgetColor || "#2d3748"
-        onTaskColorChanged: taskColor = plasmoid.configuration.taskColor || "#5e3a6b"
-        onCompletedTaskColorChanged: completedTaskColor = plasmoid.configuration.completedTaskColor || "#2f855a"
-        onTaskTextColorChanged: taskTextColor = plasmoid.configuration.taskTextColor || "#ffffff"
-        onCompletedTaskTextColorChanged: completedTaskTextColor = plasmoid.configuration.completedTaskTextColor || "#cbd5e0"
-        onWidgetTextColorChanged: widgetTextColor = plasmoid.configuration.widgetTextColor || "#ffffff"
-        onBackgroundOpacityChanged: backgroundOpacity = Number(plasmoid.configuration.backgroundOpacity || 0.95)
-        onTitleAlignmentCenterChanged: titleAlignmentCenter = plasmoid.configuration.titleAlignmentCenter || false
-        onTaskOpacityChanged: taskOpacity = Number(plasmoid.configuration.taskOpacity || 0.95)
-        onEnableBlurChanged: enableBlur = plasmoid.configuration.enableBlur || false
-        onBlurRadiusChanged: blurRadius = Number(plasmoid.configuration.blurRadius || 8)
-        onCornerRadiusChanged: cornerRadius = Number(plasmoid.configuration.cornerRadius || 16)
-        onTaskRadiusChanged: taskRadius = Number(plasmoid.configuration.taskRadius || 12)
-        onTaskHeightChanged: taskHeight = Number(plasmoid.configuration.taskHeight || 56)
-    }
+    property int completedTasks: TaskUtils.completedCount(taskModel)
+    property bool widgetHovered: false
+    property bool editingTask: false
 
     Plasmoid.backgroundHints: hideBackground
         ? (PlasmaCore.Types.NoBackground | PlasmaCore.Types.ConfigurableBackground)
@@ -66,22 +47,6 @@ PlasmoidItem {
     ]
 
     Component.onCompleted: {
-        hideBackground = plasmoid.configuration.hideBackground || false
-        titleAlignmentCenter = plasmoid.configuration.titleAlignmentCenter || false
-        widgetTitle = plasmoid.configuration.widgetTitle || i18n("Tasks")
-        widgetColor = plasmoid.configuration.widgetColor || "#2d3748"
-        taskColor = plasmoid.configuration.taskColor || "#5e3a6b"
-        completedTaskColor = plasmoid.configuration.completedTaskColor || "#2f855a"
-        taskTextColor = plasmoid.configuration.taskTextColor || "#ffffff"
-        completedTaskTextColor = plasmoid.configuration.completedTaskTextColor || "#cbd5e0"
-        widgetTextColor = plasmoid.configuration.widgetTextColor || "#ffffff"
-        backgroundOpacity = Number(plasmoid.configuration.backgroundOpacity || 0.95)
-        taskOpacity = Number(plasmoid.configuration.taskOpacity || 0.95)
-        enableBlur = plasmoid.configuration.enableBlur || false
-        blurRadius = Number(plasmoid.configuration.blurRadius || 8)
-        cornerRadius = Number(plasmoid.configuration.cornerRadius || 16)
-        taskRadius = Number(plasmoid.configuration.taskRadius || 12)
-        taskHeight = Number(plasmoid.configuration.taskHeight || 56)
         loadTasks()
     }
 

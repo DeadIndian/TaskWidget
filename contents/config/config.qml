@@ -1,9 +1,9 @@
-import QtQuick 2.15
-import org.kde.plasma.configuration 2.0
+import QtQuick
+import org.kde.plasma.configuration
 
 ConfigModel {
     ConfigCategory {
-        name: "General"
+        name: i18n("Task Widget Configuration")
         icon: "preferences-system"
         source: "configGeneral.qml"
     }

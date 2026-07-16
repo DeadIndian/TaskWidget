@@ -5,107 +5,36 @@ import QtQuick.Dialogs
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.components as PlasmaComponents
 import org.kde.plasma.core as PlasmaCore
+import org.kde.kcmutils as KCMUtils
 
-Item {
-    id: root
+KCMUtils.SimpleKCM {
+    id: page
     width: 400
     height: 620
     
-    property bool tempHideBackground: hideBackground.checked
-    property bool tempEnableBlur: enableBlur.checked
-    property bool tempTitleAlignmentCenter: titleAlignmentCenter.checked
-    property string tempWidgetTitle: widgetTitle.text
-    property string tempWidgetColor: widgetColor.text
-    property string tempTaskColor: taskColor.text
-    property string tempCompletedTaskColor: completedTaskColor.text
-    property string tempTaskTextColor: taskTextColor.text
-    property string tempCompletedTaskTextColor: completedTaskTextColor.text
-    property string tempWidgetTextColor: widgetTextColor.text
-    property real tempBackgroundOpacity: backgroundOpacity.value
-    property real tempTaskOpacity: taskOpacity.value
-    property int tempBlurRadius: blurRadius.value
-    property int tempCornerRadius: cornerRadius.value
-    property int tempTaskRadius: taskRadius.value
-    property int tempTaskHeight: taskHeight.value
+    property alias cfg_hideBackground: hideBackgroundCheckBox.checked
+    property alias cfg_enableBlur: enableBlurCheckBox.checked
+    property alias cfg_titleAlignmentCenter: titleAlignmentCheckBox.checked
+    property alias cfg_widgetTitle: widgetTitleSpin.text
+    property alias cfg_widgetColor: widgetColorDialog.selectedColor
+    property alias cfg_taskColor: taskColorDialog.selectedColor
+    property alias cfg_completedTaskColor: completedTaskColorDialog.selectedColor
+    property alias cfg_taskTextColor: taskTextColorDialog.selectedColor
+    property alias cfg_completedTaskTextColor: completedTaskTextColorDialog.selectedColor
+    property alias cfg_widgetTextColor: widgetTextColorDialog.selectedColor
+    property alias cfg_backgroundOpacity: backgroundOpacitySpin.value
+    property alias cfg_taskOpacity: taskOpacitySpin.value
+    property alias cfg_blurRadius: blurRadiusSpin.value
+    property alias cfg_cornerRadius: cornerRadiusSpin.value
+    property alias cfg_taskRadius: taskRadiusSpin.value
+    property alias cfg_taskHeight: taskHeightSpin.value
     
-    property bool hasChanges: false
     
-    function loadConfiguration() {
-        if (plasmoid && plasmoid.configuration) {
-            tempHideBackground = plasmoid.configuration.hideBackground || false
-            tempEnableBlur = plasmoid.configuration.enableBlur || false
-            tempTitleAlignmentCenter = plasmoid.configuration.titleAlignmentCenter || false
-            tempWidgetTitle = plasmoid.configuration.widgetTitle || i18n("Tasks")
-            tempWidgetColor = plasmoid.configuration.widgetColor || "#2d3748"
-            tempTaskColor = plasmoid.configuration.taskColor || "#5e3a6b"
-            tempCompletedTaskColor = plasmoid.configuration.completedTaskColor || "#2f855a"
-            tempTaskTextColor = plasmoid.configuration.taskTextColor || "#ffffff"
-            tempCompletedTaskTextColor = plasmoid.configuration.completedTaskTextColor || "#cbd5e0"
-            tempWidgetTextColor = plasmoid.configuration.widgetTextColor || "#ffffff"
-            tempBackgroundOpacity = plasmoid.configuration.backgroundOpacity || 0.95
-            tempTaskOpacity = plasmoid.configuration.taskOpacity || 0.95
-            tempBlurRadius = plasmoid.configuration.blurRadius || 8
-            tempCornerRadius = plasmoid.configuration.cornerRadius || 16
-            tempTaskRadius = plasmoid.configuration.taskRadius || 12
-            tempTaskHeight = plasmoid.configuration.taskHeight || 32
-            
-            hideBackgroundCheckBox.checked = tempHideBackground
-            enableBlurCheckBox.checked = tempEnableBlur
-            titleAlignmentCheckBox.checked = tempTitleAlignmentCenter
-            widgetTitleField.text = tempWidgetTitle
-            colorPreview.color = tempWidgetColor
-            taskColorPreview.color = tempTaskColor
-            completedTaskColorPreview.color = tempCompletedTaskColor
-            taskTextColorPreview.color = tempTaskTextColor
-            completedTaskTextColorPreview.color = tempCompletedTaskTextColor
-            backgroundOpacityField.text = tempBackgroundOpacity.toString()
-            taskOpacityField.text = tempTaskOpacity.toString()
-            blurRadiusField.text = tempBlurRadius.toString()
-            cornerRadiusField.text = tempCornerRadius.toString()
-            taskRadiusField.text = tempTaskRadius.toString()
-            taskHeightField.text = tempTaskHeight.toString()
-            
-            hasChanges = false
-        }
-    }
-    
-    function applyChanges() {
-        if (plasmoid && plasmoid.configuration) {
-            plasmoid.configuration.hideBackground = tempHideBackground
-            plasmoid.configuration.enableBlur = tempEnableBlur
-            plasmoid.configuration.titleAlignmentCenter = tempTitleAlignmentCenter
-            plasmoid.configuration.widgetTitle = tempWidgetTitle
-            plasmoid.configuration.widgetColor = tempWidgetColor
-            plasmoid.configuration.taskColor = tempTaskColor
-            plasmoid.configuration.completedTaskColor = tempCompletedTaskColor
-            plasmoid.configuration.taskTextColor = tempTaskTextColor
-            plasmoid.configuration.completedTaskTextColor = tempCompletedTaskTextColor
-            plasmoid.configuration.widgetTextColor = tempWidgetTextColor
-            plasmoid.configuration.backgroundOpacity = tempBackgroundOpacity
-            plasmoid.configuration.taskOpacity = tempTaskOpacity
-            plasmoid.configuration.blurRadius = tempBlurRadius
-            plasmoid.configuration.cornerRadius = tempCornerRadius
-            plasmoid.configuration.taskRadius = tempTaskRadius
-            plasmoid.configuration.taskHeight = tempTaskHeight
-            
-            hasChanges = false
-        }
-    }
-    
-    function markAsChanged() {
-        hasChanges = true
-        applyButton.enabled = true
-        resetButton.enabled = true
-    }
-    
-    Component.onCompleted: {
-        loadConfiguration()
-    }
     ScrollView {
         id: control
         focus: true
-        width: root.availableWidth
-        height: root.availableHeight
+        width: page.availableWidth
+        height: page.availableHeight
         anchors.margins: 8
         anchors {
             left: parent.left
@@ -119,81 +48,39 @@ Item {
             y: control.topPadding
             height: control.availableHeight
         }
-        ColumnLayout {
+        Kirigami.FormLayout {
             width: control.availableWidth
             anchors {
                 left: control.left
                 right: control.right
                 top: control.top
             }
-            spacing: 10
 
-            PlasmaComponents.Label {
-                text: i18n("Task Widget Configuration")
-                font.bold: true
-                font.pixelSize: 16
-                Layout.fillWidth: true
-            }
-
-            PlasmaComponents.CheckBox {
+            CheckBox {
                 id: hideBackgroundCheckBox
-                text: i18n("Hide background")
-                checked: tempHideBackground
-                onCheckedChanged: {
-                    if (checked !== tempHideBackground) {
-                        tempHideBackground = checked
-                        markAsChanged()
-                    }
-                }
+                Kirigami.FormData.label: i18n("Hide background")
             }
 
-            PlasmaComponents.CheckBox {
+            CheckBox {
                 id: enableBlurCheckBox
-                text: i18n("Enable blur")
-                checked: tempEnableBlur
+                Kirigami.FormData.label: i18n("Enable blur")
                 visible: !hideBackgroundCheckBox.checked
-                onCheckedChanged: {
-                    if (checked !== tempEnableBlur) {
-                        tempEnableBlur = checked
-                        markAsChanged()
-                    }
-                }
             }
 
-            PlasmaComponents.Label {
-                text: i18n("Title")
-                font.pixelSize: 12
-            }
-            PlasmaComponents.TextField {
-                id: widgetTitleField
+            TextField {
+                Kirigami.FormData.label: i18n("Title")
+                id: widgetTitleSpin
                 Layout.fillWidth: true
-                text: tempWidgetTitle
-                onTextChanged: {
-                    if (text !== tempWidgetTitle) {
-                        tempWidgetTitle = text
-                        markAsChanged()
-                    }
-                }
             }
 
-            PlasmaComponents.CheckBox {
+            CheckBox {
                 id: titleAlignmentCheckBox
-                text: i18n("Center title alignment")
-                checked: tempTitleAlignmentCenter
-                onCheckedChanged: {
-                    if (checked !== tempTitleAlignmentCenter) {
-                        tempTitleAlignmentCenter = checked
-                        markAsChanged()
-                    }
-                }
+                Kirigami.FormData.label: i18n("Center title alignment")
             }
 
-            PlasmaComponents.Label {
-                text: i18n("Main color")
-                font.pixelSize: 12
-            }
             RowLayout {
                 Layout.fillWidth: true
+                Kirigami.FormData.label: i18n("Main color")
                 spacing: 10
 
                 Rectangle {
@@ -201,35 +88,26 @@ Item {
                     width: 34
                     height: 28
                     radius: 6
-                    color: tempWidgetColor
+                    color: cfg_widgetColor
                     border.color: "#718096"
                     Layout.fillWidth: true
                     border.width: 1
                 }
 
-                PlasmaComponents.Button {
+                Button {
                     text: i18n("Choose color")
                     Layout.fillWidth: true
-                    onClicked: colorDialog.open()
+                    onClicked: widgetColorDialog.open()
                 }
             }
             ColorDialog {
-                id: colorDialog
-                title: i18n("Choose Font Color")
-                selectedColor: tempWidgetColor
-                onAccepted: {
-                    tempWidgetColor = selectedColor
-                    colorPreview.color = tempWidgetColor
-                    markAsChanged()
-                }
+                id: widgetColorDialog
+                selectedColor: cfg_widgetColor
             }
 
-            PlasmaComponents.Label {
-                text: i18n("Task color")
-                font.pixelSize: 12
-            }
             RowLayout {
                 Layout.fillWidth: true
+                Kirigami.FormData.label: i18n("Task color")
                 spacing: 10
 
                 Rectangle {
@@ -237,13 +115,13 @@ Item {
                     width: 34
                     height: 28
                     radius: 6
-                    color: tempTaskColor
+                    color: cfg_taskColor
                     border.color: "#718096"
                     Layout.fillWidth: true
                     border.width: 1
                 }
 
-                PlasmaComponents.Button {
+                Button {
                     text: i18n("Choose color")
                     Layout.fillWidth: true
                     onClicked: taskColorDialog.open()
@@ -252,20 +130,12 @@ Item {
             ColorDialog {
                 id: taskColorDialog
                 title: i18n("Choose Task Color")
-                selectedColor: tempTaskColor
-                onAccepted: {
-                    tempTaskColor = selectedColor
-                    taskColorPreview.color = tempTaskColor
-                    markAsChanged()
-                }
+                selectedColor: cfg_taskColor
             }
 
-            PlasmaComponents.Label {
-                text: i18n("Completed task color")
-                font.pixelSize: 12
-            }
             RowLayout {
                 Layout.fillWidth: true
+                Kirigami.FormData.label: i18n("Completed task color")
                 spacing: 10
 
                 Rectangle {
@@ -273,13 +143,13 @@ Item {
                     width: 34
                     height: 28
                     radius: 6
-                    color: tempCompletedTaskColor
+                    color: cfg_completedTaskColor
                     border.color: "#718096"
                     Layout.fillWidth: true
                     border.width: 1
                 }
 
-                PlasmaComponents.Button {
+                Button {
                     text: i18n("Choose color")
                     Layout.fillWidth: true
                     onClicked: completedTaskColorDialog.open()
@@ -288,20 +158,12 @@ Item {
             ColorDialog {
                 id: completedTaskColorDialog
                 title: i18n("Choose Completed Task Color")
-                selectedColor: tempCompletedTaskColor
-                onAccepted: {
-                    tempCompletedTaskColor = selectedColor
-                    completedTaskColorPreview.color = tempCompletedTaskColor
-                    markAsChanged()
-                }
+                selectedColor: cfg_completedTaskColor
             }
 
-            PlasmaComponents.Label {
-                text: i18n("Task text color")
-                font.pixelSize: 12
-            }
             RowLayout {
                 Layout.fillWidth: true
+                Kirigami.FormData.label: i18n("Task text color")
                 spacing: 10
 
                 Rectangle {
@@ -309,13 +171,13 @@ Item {
                     width: 34
                     height: 28
                     radius: 6
-                    color: tempTaskTextColor
+                    color: cfg_taskTextColor
                     border.color: "#718096"
                     Layout.fillWidth: true
                     border.width: 1
                 }
 
-                PlasmaComponents.Button {
+                Button {
                     text: i18n("Choose color")
                     Layout.fillWidth: true
                     onClicked: taskTextColorDialog.open()
@@ -324,20 +186,12 @@ Item {
             ColorDialog {
                 id: taskTextColorDialog
                 title: i18n("Choose Task Text Color")
-                selectedColor: tempTaskTextColor
-                onAccepted: {
-                    tempTaskTextColor = selectedColor
-                    taskTextColorPreview.color = tempTaskTextColor
-                    markAsChanged()
-                }
+                selectedColor: cfg_taskTextColor
             }
 
-            PlasmaComponents.Label {
-                text: i18n("Completed task text color")
-                font.pixelSize: 12
-            }
             RowLayout {
                 Layout.fillWidth: true
+                Kirigami.FormData.label: i18n("Completed task text color")
                 spacing: 10
 
                 Rectangle {
@@ -345,13 +199,13 @@ Item {
                     width: 34
                     height: 28
                     radius: 6
-                    color: tempCompletedTaskTextColor
+                    color: cfg_completedTaskTextColor
                     border.color: "#718096"
                     Layout.fillWidth: true
                     border.width: 1
                 }
 
-                PlasmaComponents.Button {
+                Button {
                     text: i18n("Choose color")
                     Layout.fillWidth: true
                     onClicked: completedTaskTextColorDialog.open()
@@ -360,20 +214,12 @@ Item {
             ColorDialog {
                 id: completedTaskTextColorDialog
                 title: i18n("Choose Completed Task Text Color")
-                selectedColor: tempCompletedTaskTextColor
-                onAccepted: {
-                    tempCompletedTaskTextColor = selectedColor
-                    completedTaskTextColorPreview.color = tempCompletedTaskTextColor
-                    markAsChanged()
-                }
+                selectedColor: cfg_completedTaskTextColor
             }
 
-            PlasmaComponents.Label {
-                text: i18n("Widget text color")
-                font.pixelSize: 12
-            }
             RowLayout {
                 Layout.fillWidth: true
+                Kirigami.FormData.label: i18n("Widget text color")
                 spacing: 10
 
                 Rectangle {
@@ -381,13 +227,13 @@ Item {
                     width: 34
                     height: 28
                     radius: 6
-                    color: tempWidgetTextColor
+                    color: cfg_widgetTextColor
                     border.color: "#718096"
                     Layout.fillWidth: true
                     border.width: 1
                 }
 
-                PlasmaComponents.Button {
+                Button {
                     text: i18n("Choose color")
                     Layout.fillWidth: true
                     onClicked: widgetTextColorDialog.open()
@@ -396,138 +242,64 @@ Item {
             ColorDialog {
                 id: widgetTextColorDialog
                 title: i18n("Choose Widget Text Color")
-                selectedColor: tempWidgetTextColor
-                onAccepted: {
-                    tempWidgetTextColor = selectedColor
-                    widgetTextColorPreview.color = tempWidgetTextColor
-                    markAsChanged()
-                }
+                selectedColor: cfg_widgetTextColor
             }
 
-            PlasmaComponents.Label {
-                text: i18n("Background opacity")
-                font.pixelSize: 12
-                visible: !hideBackgroundCheckBox.checked
-            }
-            PlasmaComponents.TextField {
-                id: backgroundOpacityField
+            SpinBox {
+                id: backgroundOpacitySpin
+                Kirigami.FormData.label: i18n("Background opacity")
                 visible: !hideBackgroundCheckBox.checked
                 Layout.fillWidth: true
-                text: tempBackgroundOpacity.toString()
-                onTextChanged: {
-                    var value = Number(text)
-                    if (!isNaN(value) && value >= 0 && value <= 1 && value !== tempBackgroundOpacity) {
-                        tempBackgroundOpacity = value
-                        markAsChanged()
-                    }
-                }
-                validator: DoubleValidator { bottom: 0; top: 1; decimals: 2 }
+                from: 0
+                to: 100
+                stepSize: 1
             }
 
-            PlasmaComponents.Label {
-                text: i18n("Task block opacity")
-                font.pixelSize: 12
-            }
-            PlasmaComponents.TextField {
-                id: taskOpacityField
+            SpinBox {
+                id: taskOpacitySpin
+                Kirigami.FormData.label: i18n("Task block opacity")
                 Layout.fillWidth: true
-                text: tempTaskOpacity.toString()
-                onTextChanged: {
-                    var value = Number(text)
-                    if (!isNaN(value) && value >= 0 && value <= 1 && value !== tempTaskOpacity) {
-                        tempTaskOpacity = value
-                        markAsChanged()
-                    }
-                }
-                validator: DoubleValidator { bottom: 0; top: 1; decimals: 2 }
+                from: 0
+                to: 100
+                stepSize: 1
             }
 
-            PlasmaComponents.Label {
-                text: i18n("Blur radius")
-                font.pixelSize: 12
-                visible: !hideBackgroundCheckBox.checked
-            }
-            PlasmaComponents.TextField {
-                id: blurRadiusField
+            SpinBox {
+                id: blurRadiusSpin
+                Kirigami.FormData.label: i18n("Blur radius")
                 visible: !hideBackgroundCheckBox.checked
                 Layout.fillWidth: true
-                text: tempBlurRadius.toString()
-                onTextChanged: {
-                    var value = Number(text)
-                    if (!isNaN(value) && value >= 0 && value !== tempBlurRadius) {
-                        tempBlurRadius = Math.round(value)
-                        markAsChanged()
-                    }
-                }
-                validator: IntValidator { bottom: 0; top: 100 }
+                from: 0
+                to: 100
+                stepSize: 1
             }
 
-            PlasmaComponents.Label {
-                text: i18n("Widget corner radius")
-                font.pixelSize: 12
+            SpinBox {
                 visible: !hideBackgroundCheckBox.checked
-            }
-            PlasmaComponents.TextField {
-                visible: !hideBackgroundCheckBox.checked
-                id: cornerRadiusField
+                id: cornerRadiusSpin
+                Kirigami.FormData.label: i18n("Widget corner radius")
                 Layout.fillWidth: true
-                text: tempCornerRadius.toString()
-                onTextChanged: {
-                    var value = Number(text)
-                    if (!isNaN(value) && value >= 0 && value !== tempCornerRadius) {
-                        tempCornerRadius = Math.round(value)
-                        markAsChanged()
-                    }
-                }
-                validator: IntValidator { bottom: 0; top: 100 }
+                from: 0
+                to: 100
+                stepSize: 1
             }
 
-            PlasmaComponents.Label {
-                text: i18n("Task block radius")
-                font.pixelSize: 12
-            }
-            PlasmaComponents.TextField {
-                id: taskRadiusField
+            SpinBox {
+                id: taskRadiusSpin
+                Kirigami.FormData.label: i18n("Task block radius")
                 Layout.fillWidth: true
-                text: tempTaskRadius.toString()
-                onTextChanged: {
-                    var value = Number(text)
-                    if (!isNaN(value) && value >= 0 && value !== tempTaskRadius) {
-                        tempTaskRadius = Math.round(value)
-                        markAsChanged()
-                    }
-                }
-                validator: IntValidator { bottom: 0; top: 100 }
+                from: 0
+                to: 100
+                stepSize: 1
             }
 
-            PlasmaComponents.Label {
-                text: i18n("Task item height")
-                font.pixelSize: 12
-            }
-            PlasmaComponents.TextField {
-                id: taskHeightField
+            SpinBox {
+                id: taskHeightSpin
+                Kirigami.FormData.label: i18n("Task item height")
                 Layout.fillWidth: true
-                text: tempTaskHeight.toString()
-                onTextChanged: {
-                    var value = Number(text)
-                    if (!isNaN(value) && value >= 20 && value !== tempTaskHeight) {
-                        tempTaskHeight = Math.round(value)
-                        markAsChanged()
-                    }
-                }
-                validator: IntValidator { bottom: 20; top: 200 }
-            }
-
-            RowLayout {
-                Layout.fillWidth: true
-                spacing: 8
-                            
-                PlasmaComponents.Button {
-                    id: applyButton
-                    text: i18n("Apply")
-                    Layout.fillWidth: true
-                    onClicked: applyChanges()
-                }
+                from: 20
+                to: 200
+                stepSize: 1
             }
         }
     }
