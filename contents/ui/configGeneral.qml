@@ -28,8 +28,7 @@ KCMUtils.SimpleKCM {
     property alias cfg_cornerRadius: cornerRadiusSpin.value
     property alias cfg_taskRadius: taskRadiusSpin.value
     property alias cfg_taskHeight: taskHeightSpin.value
-    
-    
+    property alias cfg_enableHideWidget: enableHideWidgetCheckBox.checked
 
     Kirigami.FormLayout {
         width: control.availableWidth
@@ -55,6 +54,11 @@ KCMUtils.SimpleKCM {
         CheckBox {
             id: titleAlignmentCheckBox
             Kirigami.FormData.label: i18n("Center title alignment")
+        }
+
+        CheckBox {
+            id: enableHideWidgetCheckBox
+            Kirigami.FormData.label: i18n("Show hide widget button")
         }
 
         RowLayout {

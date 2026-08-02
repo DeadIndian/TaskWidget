@@ -5,6 +5,7 @@ import org.kde.plasma.components as PlasmaComponents
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls as Controls
+import org.kde.kirigami as Kirigami
 
 import "code/tasks.js" as TaskUtils
 
@@ -27,14 +28,24 @@ PlasmoidItem {
     property int cornerRadius: Number(plasmoid.configuration.cornerRadius || 16)
     property int taskRadius: Number(plasmoid.configuration.taskRadius || 12)
     property int taskHeight: Number(plasmoid.configuration.taskHeight || 56)
+    property bool enableHideWidget: plasmoid.configuration.enableHideWidget || false
+    property bool widgetHidden: plasmoid.configuration.widgetHidden
 
     property int completedTasks: TaskUtils.completedCount(taskModel)
     property bool widgetHovered: false
     property bool editingTask: false
 
-    Plasmoid.backgroundHints: hideBackground
+    // When hidden the widget fades out completely, and only reappears while
+    // hovered so the toggle stays reachable.
+    property bool contentVisible: !enableHideWidget || !widgetHidden || widgetHovered
+
+    Plasmoid.backgroundHints: (hideBackground || (enableHideWidget && widgetHidden && !widgetHovered))
         ? (PlasmaCore.Types.NoBackground | PlasmaCore.Types.ConfigurableBackground)
         : (PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground)
+
+    function toggleWidgetHidden() {
+        plasmoid.configuration.widgetHidden = !plasmoid.configuration.widgetHidden
+    }
 
     ListModel {
         id: taskModel
@@ -94,7 +105,8 @@ PlasmoidItem {
         border.color: hideBackground ? "transparent" : "#607080"
         border.width: hideBackground ? 0 : 1
         radius: cornerRadius
-        opacity: hideBackground ? 1 : backgroundOpacity
+        opacity: root.contentVisible ? (hideBackground ? 1 : backgroundOpacity) : 0
+        Behavior on opacity { NumberAnimation { duration: 220 } }
         layer.enabled: enableBlur && !hideBackground
         layer.effect: FastBlur {
             radius: blurRadius
@@ -107,6 +119,9 @@ PlasmoidItem {
         anchors.margins: 12
         spacing: 4
         z: 1
+        opacity: root.contentVisible ? 1 : 0
+        enabled: root.contentVisible
+        Behavior on opacity { NumberAnimation { duration: 220 } }
 
         RowLayout {
             Layout.fillWidth: true
@@ -119,6 +134,34 @@ PlasmoidItem {
                 font.pixelSize: 18
                 Layout.fillWidth: true
                 color: widgetTextColor
+            }
+
+            Controls.Button {
+                id: hideWidgetButton
+                visible: root.enableHideWidget
+                implicitWidth: 34
+                implicitHeight: 34
+                font.bold: true
+                opacity: root.widgetHovered ? 1 : 0
+                Behavior on opacity { NumberAnimation { duration: 220 } }
+
+                contentItem: Item {
+                    Kirigami.Icon {
+                        anchors.centerIn: parent
+                        width: 14
+                        height: 14
+                        source: root.widgetHidden ? "view-hidden" : "view-visible"
+                        color: widgetTextColor
+                        isMask: true
+                    }
+                }
+                background: Rectangle {
+                    color: widgetColor
+                    border.color: "#718096"
+                    border.width: 1
+                    radius: 8
+                }
+                onClicked: toggleWidgetHidden()
             }
 
             Controls.Button {
