@@ -21,6 +21,7 @@ A KDE Plasma task management widget that allows you to track and complete your d
   - Hide/show background
   - Center widget title
   - Custom widget title
+- **Hide Widget** (optional, off by default): Toggle the whole widget invisible. While hidden it reappears on hover so you can toggle it back
 - **Blur Effects**: Optional background blur for better focus
 
 ## Screenshots
@@ -52,6 +53,7 @@ Right-click on the widget and select **Configure Widget** to customize:
 - **General Settings**:
   - Hide background
   - Center title
+  - Show hide widget button
   - Widget title
   - Widget and task colors
   - Opacity settings
@@ -65,6 +67,7 @@ Right-click on the widget and select **Configure Widget** to customize:
 2. **Complete a Task**: Click on a task to mark it as completed
 3. **Edit a Task**: Right-click on a task to edit or delete it
 4. **Clear Completed Tasks**: Right-click on the widget to clear all completed tasks
+5. **Hide the Widget**: Enable **Show hide widget button** in the settings first. An eye button then appears next to `+`. Click it to make the widget invisible; hover over its area to bring it back temporarily, then click the eye again to keep it visible
 
 ## Contributing
 

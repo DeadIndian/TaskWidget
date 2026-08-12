@@ -14,6 +14,14 @@
             <label>Center title</label>
             <default>false</default>
         </entry>
+        <entry name="enableHideWidget" type="bool">
+            <label>Show hide widget button</label>
+            <default>false</default>
+        </entry>
+        <entry name="widgetHidden" type="bool">
+            <label>Widget is hidden</label>
+            <default>false</default>
+        </entry>
         <entry name="tasks" type="string">
             <label>Saved tasks</label>
             <default>[]</default>
