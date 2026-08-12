@@ -152,3 +152,7 @@ msgstr ""
 #: ../contents/ui/configGeneral.qml
 msgid "Choose Widget Text Color"
 msgstr ""
+
+#: ../contents/ui/configGeneral.qml
+msgid "Show hide widget button"
+msgstr ""

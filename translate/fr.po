@@ -151,3 +151,6 @@ msgstr "Couleur du texte du widget"
 #: ../contents/ui/configGeneral.qml
 msgid "Choose Widget Text Color"
 msgstr "Choisir la couleur du texte du widget"
+
+msgid "Show hide widget button"
+msgstr "Bouton d'affichage/masquage du widget"

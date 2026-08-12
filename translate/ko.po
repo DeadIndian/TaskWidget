@@ -151,3 +151,6 @@ msgstr "위젯 텍스트 색상"
 #: ../contents/ui/configGeneral.qml
 msgid "Choose Widget Text Color"
 msgstr "위젯 텍스트 색상 선택"
+
+msgid "Show hide widget button"
+msgstr "위젯 표시/숨기기 버튼"

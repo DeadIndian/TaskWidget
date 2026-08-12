@@ -151,3 +151,6 @@ msgstr "小部件文本颜色"
 #: ../contents/ui/configGeneral.qml
 msgid "Choose Widget Text Color"
 msgstr "选择小部件文本颜色"
+
+msgid "Show hide widget button"
+msgstr "显示/隐藏小部件按钮"

@@ -151,3 +151,6 @@ msgstr "Цвят на текста на виджета"
 #: ../contents/ui/configGeneral.qml
 msgid "Choose Widget Text Color"
 msgstr "Изберете цвят на текста на виджета"
+
+msgid "Show hide widget button"
+msgstr "Бутон за показване/скриване на джаджа"
